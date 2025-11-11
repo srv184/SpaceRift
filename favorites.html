@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites — SpaceRift</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/cyberpunk.css" />
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header id="headerContainer"></header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="sr-hero">
+      <h2>Your Favorite Launches</h2>
+      <p>View and manage your saved upcoming missions.</p>
+    </section>
+
+    <!-- ================= FAVORITES CONTAINER ================= -->
+    <main class="launch-container" id="favoritesContainer">
+      <!-- Favorite cards will be dynamically injected here -->
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footerContainer"></footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/favorites.js"></script>
+    <script src="assets/js/userState.js"></script>
+
+    <!-- Load header/footer and initialize favorites -->
+    <script type="module">
+      import { loadHeaderFooter } from "./assets/js/components.js";
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        await loadHeaderFooter();
+
+        // Load favorites after header/footer
+        if (typeof loadFavorites === "function") {
+          loadFavorites();
+        }
+      });
+    </script>
+  </body>
+</html>
