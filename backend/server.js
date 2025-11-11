@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
-// ✅ Serve frontend files from parent directory (the project root)
+// ✅ Serve frontend files from project root
 app.use(express.static(path.join(__dirname, "../")));
 
 // ✅ API Route (proxy to SpaceDevs API)
@@ -32,8 +32,9 @@ app.get("/api/launches", async (req, res) => {
   }
 });
 
-// ✅ Fallback — any other route should serve index.html
-app.get("*", (req, res) => {
+// ✅ Fallback route — handles all other requests
+// (Express 5 compatible: using app.use instead of app.get("*"))
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../index.html"));
 });
 
