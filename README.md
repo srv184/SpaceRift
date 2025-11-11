@@ -1,4 +1,4 @@
-# 🚀 SpaceRift
+#  SpaceRift
 
 **SpaceRift** — a lightweight, beautiful space launch tracker built by Sourav Kumar Bhagat.  
 It fetches upcoming launch data from The SpaceDevs API and presents it in a video-backed, SpaceX-inspired UI. Users can save favorite launches to localStorage for quick access.
